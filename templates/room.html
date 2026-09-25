@@ -59,7 +59,7 @@
 
         const params = new URLSearchParams(window.location.search);
         const roomId = params.get('id');
-        const ws = new WebSocket(`ws://${window.location.host}/ws/${roomId}`);
+        const ws = new WebSocket(`wss://${window.location.host}/ws/${roomId}`);
 
         ws.onmessage = (event) => {
             const messages = document.getElementById('messages');
