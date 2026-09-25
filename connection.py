@@ -33,8 +33,9 @@ class Connections:
     async def receive(self, websocket):
         while True:
             data=await websocket.receive_text()
+            data=f'{date.hour}:{date.minute} '+data
             date=datetime.now()
             for i in self.cons:
-                await i.send_text(f'{date.hour}:{date.minute} '+data)
+                await i.send_text(data)
             self.history.append(data)
     
