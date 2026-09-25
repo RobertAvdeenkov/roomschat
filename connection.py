@@ -11,10 +11,10 @@ class Connections:
         await websocket.accept()
         active=''
         for i in self.cons:
-            active+=f'{i.scope['ip']}\n'
+            active+=f'{i.scope['client'][0]}<br>'
         await websocket.send_text(
             f'''
-            Добро пожаловать в чат!
+            Добро пожаловать в чат!<br>
             Список активных пользователей:
             {active}
             '''
