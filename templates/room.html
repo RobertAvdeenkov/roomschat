@@ -57,6 +57,19 @@
 
     <script>
 
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return null;
+        }
+
+        let nickname = getCookie('nickname');
+        if (!/^[a-zA-Z0-9_]+$/.test(nickname)) {
+            alert('Ник может содержать только латинские буквы, цифры и _');
+            window.location='/'
+        }
+
         const params = new URLSearchParams(window.location.search);
         const roomId = params.get('id');
         const ws = new WebSocket(`wss://${window.location.host}/ws/${roomId}`);
