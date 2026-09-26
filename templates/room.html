@@ -56,6 +56,11 @@
     </div>
 
     <script>
+        function appeal(name){
+            const input = document.getElementById('messageInput');
+            const txt = input.value;
+            input.value = name+', '+input.value
+        }
 
         function getCookie(name) {
             const value = `; ${document.cookie}`;

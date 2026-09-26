@@ -11,7 +11,7 @@ rooms=[]
 router=APIRouter()
 
 @router.get('/')
-async def mainpage( nickname=Cookie()):
+async def mainpage():
     return FileResponse('templates/mainpage.html')
 
 @router.post('/append')
