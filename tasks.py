@@ -26,7 +26,7 @@ async def add_room(name=Query(), nickname=Cookie()):
 
 @router.get('/rooms')
 async def roomsSHOW():
-    return {'rooms': [{'id': room.id, 'name': f'{room.name} от владельца {room.creator}'} for room in rooms]}
+    return {'rooms': [{'id': room.id, 'name': f'{room.name} от владельца {room.creator}', 'len': f'{len(room.cons)}'} for room in rooms]}
 
 @router.get('/room')
 async def room(id:int, nickname=Cookie()):
